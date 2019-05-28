@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pirates
+namespace Pirate
 {
-    public class PirateNames
+    public class PirateName
     {
         public string Name { get; set; }
-
-
     }
 }
