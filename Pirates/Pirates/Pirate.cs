@@ -4,11 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pirate.ViewModel
+namespace Testing2.Directory
 {
-    /// <summary>
-    /// Interaction class for Viewmodel
-    /// </summary>
     class Pirate
     {
     }

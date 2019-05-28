@@ -1,7 +1,8 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
-namespace Pirates
+namespace Pirate
 {
+    // Interaction logic for main view to main window
     public class MainViewModel
     {
         public MainViewModel()
@@ -14,17 +15,19 @@ namespace Pirates
             };
         }
         public static MainViewModel DataContext { get; set; }
-        public ObservableCollection<PirateNames> Pirates { get; set; }
-        
-        //Method to add pirate names to listbox
+        public ObservableCollection<PirateName> Pirates { get; set; }
+
+        //new method for shorthand adding pirate names from collection
         public void AddPirates(string newPirate)
         {
             Pirates.Add(new PirateName { Name = newPirate });
         }
-        //Method to remove pirate names from listbox
-        public void RemovePirate(int losePirate)
+
+        //new method for shorthand removing pirate names from collection
+        public void RemovePirates(int losePirate)
         {
             Pirates.RemoveAt(losePirate);
         }
     }
+
 }
