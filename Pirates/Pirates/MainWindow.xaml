@@ -22,10 +22,14 @@
             <RowDefinition Height="auto" MinHeight="73"  />
             <RowDefinition Height="30*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="TextBox" Grid.ColumnSpan="2" Margin="10,16,21,5" TextWrapping="Wrap" KeyDown="EnterAdd" KeyUp="EnterClear"/>
-        <Button x:Name="Add" Content="Add" Background="#FF40E1AF" Grid.Row="1" Margin="10,0,10,7"  VerticalAlignment="Bottom" Click="Add_Click"/>
-        <Button x:Name="Remove" Content="Remove"  Margin="5,0,10,7" Grid.Column="1" Background="#FFDD4F4F" Grid.Row="1" VerticalAlignment="Bottom" Click="Remove_Click"/>
-        <ListBox x:Name="ListBox"  Background="White" Grid.ColumnSpan="2" Margin="10,10,10,16" Grid.Row="2" Grid.RowSpan="2" ItemsSource="{Binding Pirates}" KeyDown="ListBox_KeyDown" >
+        <TextBox Grid.ColumnSpan="2" Margin="10,16,21,5" x:Name="TextBox"  TextWrapping="Wrap" 
+                 KeyDown="EnterAdd" KeyUp="EnterClear"/>
+        <Button Grid.Row="1" Margin="10,0,10,7" x:Name="Add" Content="Add" Background="#FF40E1AF"   
+                VerticalAlignment="Bottom" Click="Add_Click"/>
+        <Button Margin="5,0,10,7" Grid.Column="1" x:Name="Remove" Content="Remove"   Background="#FFDD4F4F" 
+                Grid.Row="1" VerticalAlignment="Bottom" Click="Remove_Click"/>
+        <ListBox Grid.ColumnSpan="2" Margin="10,10,10,16" Grid.Row="2" Grid.RowSpan="2" x:Name="ListBox"  
+                 Background="White"  ItemsSource="{Binding Pirates}" KeyDown="ListBox_KeyDown" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -34,6 +38,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock HorizontalAlignment="Left" Height="Auto" Margin="10,0,0,0" TextWrapping="Wrap" Text="Enter Text Here" VerticalAlignment="Top" Width="96"/>
+        <TextBlock Margin="10,0,0,0" HorizontalAlignment="Left" Height="Auto"  TextWrapping="Wrap" 
+                   Text="Enter Text Here" VerticalAlignment="Top" Width="96"/>
     </Grid>
 </Window>

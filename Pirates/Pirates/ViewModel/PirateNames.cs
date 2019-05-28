@@ -11,7 +11,7 @@ namespace Pirate
     /// </summary>
     public class PirateName
     {
-        //String for Observable Collection
+        ///String for Observable Collection
         public string Name { get; set; }
 
 

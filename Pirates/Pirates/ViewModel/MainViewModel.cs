@@ -20,13 +20,13 @@ namespace Pirate
         public static MainViewModel DataContext { get; set; }
         public ObservableCollection<PirateName> Pirates { get; set; }
 
-        //new method for shorthand adding pirate names from collection
+        ///new method for shorthand adding pirate names from collection
         public void AddPirates(string newPirate)
         {
             Pirates.Add(new PirateName { Name = newPirate });
         }
 
-        //new method for shorthand removing pirate names from collection
+        ///new method for shorthand removing pirate names from collection
         public void RemovePirates(int losePirate)
         {
             Pirates.RemoveAt(losePirate);
