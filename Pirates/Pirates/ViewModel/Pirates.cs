@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Pirate.ViewModel
 {
     /// <summary>
-    /// Interaction class for Viewmodel
+    /// Class for Viewmodel
     /// </summary>
     class Pirate
     {

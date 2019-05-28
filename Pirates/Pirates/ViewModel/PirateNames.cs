@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Pirate
 { 
     /// <summary>
-    /// Interaction logic for observable collection Pirates
+    /// Class for observable collection Pirates
     /// </summary>
     public class PirateName
     {

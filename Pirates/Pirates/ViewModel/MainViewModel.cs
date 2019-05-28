@@ -2,7 +2,9 @@
 
 namespace Pirate
 {
-    // Interaction logic for main view to main window
+    /// <summary>
+    /// Main Window code data
+    /// </summary>
     public class MainViewModel
     {
         public MainViewModel()
@@ -14,6 +16,7 @@ namespace Pirate
                 new PirateName {Name = "Black Beard"},
             };
         }
+
         public static MainViewModel DataContext { get; set; }
         public ObservableCollection<PirateName> Pirates { get; set; }
 

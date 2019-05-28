@@ -7,7 +7,8 @@ namespace Pirate
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    // class for mainwindow
+    
+    // class for Mainwindow code 
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -41,7 +42,7 @@ namespace Pirate
                 ((MainViewModel)DataContext).AddPirates(TextBox.Text);
         }
 
-        //clearing textbox by hitting enter on keyboard
+        //clear textbox by hitting enter on keyboard
         private void EnterClear(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
