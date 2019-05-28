@@ -3,7 +3,7 @@
 namespace Pirate
 {
     /// <summary>
-    /// Main Window code data
+    /// MainViewModel for Pirates application
     /// </summary>
     public class MainViewModel
     {
