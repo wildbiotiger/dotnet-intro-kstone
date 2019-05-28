@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Testing2.Directory
+namespace Pirate
 {
     class Pirate
     {
