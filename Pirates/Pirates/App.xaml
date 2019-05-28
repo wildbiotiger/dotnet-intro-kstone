@@ -1,7 +1,7 @@
-﻿<Application x:Class="Pirates.App"
+﻿<Application x:Class="Pirate.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Pirates"
+             xmlns:local="clr-namespace:Pirate"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
