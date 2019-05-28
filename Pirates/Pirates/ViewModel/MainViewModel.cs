@@ -9,7 +9,7 @@ namespace Pirate
     {
         public MainViewModel()
         {
-            //creates observable collection
+            ///creates observable collection
             Pirates = new ObservableCollection<PirateName>
             {
                 new PirateName {Name = "Davy Jones"},
