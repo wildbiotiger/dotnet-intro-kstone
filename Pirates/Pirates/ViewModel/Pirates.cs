@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/// <summary>
-/// Class for ViewModel
-/// </summary>
+
 namespace Pirate.ViewModel
 {  
+ /// <summary>
+/// Class for ViewModel
+/// </summary>
     class Pirate
     {
     }
