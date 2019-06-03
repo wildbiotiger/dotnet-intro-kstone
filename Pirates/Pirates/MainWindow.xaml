@@ -1,0 +1,58 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pirate"
+        x:Class="Pirate.MainWindow"
+        mc:Ignorable="d"
+        ResizeMode="CanResizeWithGrip"
+        Title="Pirate Names" Height="326" MinHeight="326" Width="350" MinWidth="350" >
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Grid Background="#FF3E78A7">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            
+            
+        </Grid.RowDefinitions>
+        <Label Grid.ColumnSpan="2" Grid.RowSpan="1" Grid.Column="2" Content="New Pirate" Style="{StaticResource Titles}" />
+        <Label Grid.Column="0" Grid.RowSpan="1" Style="{StaticResource Titles}" Content="Select Existing Pirate"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="Name" Style="{StaticResource New}"/>
+        <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource New}" Content="Ship"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource Box}" x:Name="InsertBox"
+                 SpellCheck.IsEnabled="True"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" x:Name="ShipBox" Style="{StaticResource Box}" 
+                 SpellCheck.IsEnabled="True"/>
+        <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource New}" Content="Port" />
+        <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource Box}" x:Name="HomeBox" 
+                 KeyDown="HomeBox_KeyDown" SpellCheck.IsEnabled="True"/>
+        <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource Buttons}" x:Name="Add" Content="Add" Background="#FF91ED8F" 
+                Click="Add_Click_1"/>
+        <Button Grid.Row="4" Grid.Column="2" x:Name="Remove" Content="Remove" Background="#FFD76868" Click="Remove_Click" 
+                Style="{StaticResource Buttons}"/>
+        <ListBox Grid.RowSpan="4" Grid.Column="0" Grid.Row="1" Margin="5" ItemsSource="{Binding Pirates}"
+                 x:Name="NameBox" KeyDown="NameBox_KeyDown" SelectionChanged="NameBoxClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Edit" Style="{StaticResource Buttons}" Grid.Column="3" Grid.Row="4" Background="#FFDAEF56" Click="Button_Click"/>
+    </Grid>
+</Window>
