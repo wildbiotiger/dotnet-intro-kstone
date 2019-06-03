@@ -65,9 +65,7 @@ namespace Pirate
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void NameBoxClick(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
+        {           
                 Pirates Person = NameBox.SelectedItem as Pirates;
                 if (Person != null)
                 {
@@ -75,9 +73,7 @@ namespace Pirate
                     InsertBox.Text = Person.Name;
                     ShipBox.Text = Person.Ship;
                     HomeBox.Text = Person.homePort;
-                }
-            }
-            catch { }    
+                }                
         }
 
         /// <summary>
@@ -99,8 +95,7 @@ namespace Pirate
         private void NameBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Delete)
-                ((MainViewModel)DataContext).RemovePirates(NameBox.SelectedIndex);
-               
+                ((MainViewModel)DataContext).RemovePirates(NameBox.SelectedIndex);               
         }
         
         /// <summary>
@@ -119,12 +114,15 @@ namespace Pirate
                 else ((MainViewModel)DataContext).AddPirates((InsertBox.Text), ShipBox.Text, HomeBox.Text);
                 InsertBox.Clear();
                 ShipBox.Clear();
-                HomeBox.Clear();
-                
-            }
-            
+                HomeBox.Clear();                
+            }            
         }
 
+        /// <summary>
+        /// Edit button edits pirate names in collection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ((MainViewModel)DataContext).RemovePirates(NameBox.SelectedIndex);
