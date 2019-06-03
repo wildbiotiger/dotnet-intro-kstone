@@ -37,6 +37,7 @@ namespace Pirate
                 InsertBox.Clear();
                 ShipBox.Clear();
                 HomeBox.Clear();
+
             } 
         }
 
@@ -65,13 +66,18 @@ namespace Pirate
         /// <param name="e"></param>
         private void NameBoxClick(object sender, SelectionChangedEventArgs e)
         {
-            Pirates Person = NameBox.SelectedItem as Pirates;
-            if (Person !=null)
+            try
             {
-                NameBlock.Content = "Name:"+" "+Person.Name;
-                ShipBlock.Content = "Ship:"+" "+Person.Ship;
-                PortBlock.Content = "Port:"+" "+Person.homePort;
-            }            
+                Pirates Person = NameBox.SelectedItem as Pirates;
+                if (Person != null)
+                {
+                   
+                    InsertBox.Text = Person.Name;
+                    ShipBox.Text = Person.Ship;
+                    HomeBox.Text = Person.homePort;
+                }
+            }
+            catch { }    
         }
 
         /// <summary>
@@ -82,9 +88,7 @@ namespace Pirate
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             ((MainViewModel)DataContext).RemovePirates(NameBox.SelectedIndex);
-            NameBlock.Content = " ";
-            ShipBlock.Content = " ";
-            PortBlock.Content = " ";
+            
         }
 
         /// <summary>
@@ -96,11 +100,9 @@ namespace Pirate
         {
             if (e.Key == Key.Delete)
                 ((MainViewModel)DataContext).RemovePirates(NameBox.SelectedIndex);
-                NameBlock.Content = " ";
-                ShipBlock.Content = " ";
-                PortBlock.Content = " ";
+               
         }
-
+        
         /// <summary>
         /// checks textbox for being empty and inputs pirate information if not
         /// </summary>
@@ -111,11 +113,23 @@ namespace Pirate
             if (e.Key == Key.Enter)
             {
                 if ((InsertBox.Text == String.Empty || ShipBox.Text == String.Empty || HomeBox.Text == String.Empty))         
-                {
+                { 
                     MessageBox.Show("Enter Pirate Information Please.", "Error");
                 }               
                 else ((MainViewModel)DataContext).AddPirates((InsertBox.Text), ShipBox.Text, HomeBox.Text);
+                InsertBox.Clear();
+                ShipBox.Clear();
+                HomeBox.Clear();
+                
             }
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainViewModel)DataContext).RemovePirates(NameBox.SelectedIndex);
+            ((MainViewModel)DataContext).AddPirates(InsertBox.Text,ShipBox.Text,HomeBox.Text);
+            
         }
     }
 }

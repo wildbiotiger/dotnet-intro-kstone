@@ -7,7 +7,7 @@
         x:Class="Pirate.MainWindow"
         mc:Ignorable="d"
         ResizeMode="CanResizeWithGrip"
-        Title="Pirate Names" Height="325" MinHeight="325" Width="350" MinWidth="350" >
+        Title="Pirate Names" Height="326" MinHeight="326" Width="350" MinWidth="350" >
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
@@ -24,24 +24,26 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+            
+            
         </Grid.RowDefinitions>
-        <Label Grid.ColumnSpan="2" Grid.RowSpan="1" Grid.Column="1" Content="New Pirate" Style="{StaticResource Titles}" />
-        <Label Grid.Column="3" Grid.RowSpan="1" Style="{StaticResource Titles}" Content="Select Existing Pirate"/>
-        <Label Grid.Row="1" Content="Name" Style="{StaticResource New}"/>
-        <Label Grid.Row="2" Style="{StaticResource New}" Content="Ship"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Box}" x:Name="InsertBox"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" x:Name="ShipBox" Style="{StaticResource Box}"/>
-        <Label Grid.Row="3" Style="{StaticResource New}" Content="Port" />
-        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Box}" x:Name="HomeBox" 
-                 KeyDown="HomeBox_KeyDown"/>
+        <Label Grid.ColumnSpan="2" Grid.RowSpan="1" Grid.Column="2" Content="New Pirate" Style="{StaticResource Titles}" />
+        <Label Grid.Column="0" Grid.RowSpan="1" Style="{StaticResource Titles}" Content="Select Existing Pirate"/>
+        <Label Grid.Row="1" Grid.Column="1" Content="Name" Style="{StaticResource New}"/>
+        <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource New}" Content="Ship"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource Box}" x:Name="InsertBox"
+                 SpellCheck.IsEnabled="True"/>
+        <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" x:Name="ShipBox" Style="{StaticResource Box}" 
+                 SpellCheck.IsEnabled="True"/>
+        <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource New}" Content="Port" />
+        <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource Box}" x:Name="HomeBox" 
+                 KeyDown="HomeBox_KeyDown" SpellCheck.IsEnabled="True"/>
         <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource Buttons}" x:Name="Add" Content="Add" Background="#FF91ED8F" 
                 Click="Add_Click_1"/>
         <Button Grid.Row="4" Grid.Column="2" x:Name="Remove" Content="Remove" Background="#FFD76868" Click="Remove_Click" 
                 Style="{StaticResource Buttons}"/>
-        <ListBox Grid.RowSpan="4" Grid.Column="3" Grid.Row="1" Margin="5" ItemsSource="{Binding Pirates}"
+        <ListBox Grid.RowSpan="4" Grid.Column="0" Grid.Row="1" Margin="5" ItemsSource="{Binding Pirates}"
                  x:Name="NameBox" KeyDown="NameBox_KeyDown" SelectionChanged="NameBoxClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -51,8 +53,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Grid.Row="5" Grid.ColumnSpan="4" Style="{StaticResource Displays}" x:Name="NameBlock"/>
-        <Label  Grid.ColumnSpan="4"  Grid.Row="6" x:Name="ShipBlock" Style="{StaticResource Displays}" />
-        <Label Grid.ColumnSpan="4" Grid.Row="7"  x:Name="PortBlock" Style="{StaticResource Displays}"/>
+        <Button Content="Edit" Style="{StaticResource Buttons}" Grid.Column="3" Grid.Row="4" Background="#FFDAEF56" Click="Button_Click"/>
     </Grid>
 </Window>

@@ -7,7 +7,6 @@ namespace Pirate
     /// </summary>
     public class Pirates
     {
-
         /// <summary>
         /// String for Observable Collection
         /// </summary>
