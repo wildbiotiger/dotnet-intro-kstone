@@ -2,13 +2,10 @@
 
 from app import app
 from db_setup import db_session
-from forms import PirateForm, ShipForm
+from forms import PirateForm, ShipForm, DeletePirateForm
 from flask import flash, render_template, request, redirect
-from models import Ship, Pirate
+from models import Ship, Pirate, Port
 from tables import Results
-
-
-
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -17,7 +14,6 @@ def index():
         return search_results(search)
 
     return render_template('index.html', form=search)
-
 
 @app.route('/results')
 def search_results(search):
@@ -33,7 +29,12 @@ def search_results(search):
         elif search.data['select'] == 'Pirate':
             qry = db_session.query(Pirate).filter(
                 Pirate.name.contains(search_string))
-            results = qry.all()        
+            results = qry.all()
+        elif search.data['select'] == 'Port':
+            qry = db_session.query(Pirate, Port).filter(
+                Port.id==Pirate.port_id).filter(
+                    Port.name.contains(search_string))
+            results = [item[0] for item in qry.all()]     
         else:
             qry = db_session.query(Pirate)
             results = qry.all()
@@ -49,7 +50,6 @@ def search_results(search):
         table = Results(results)
         table.border = True
         return render_template('results.html', table=table)
-
 
 @app.route('/new_pirate', methods=['GET', 'POST'])
 def new_pirate():
@@ -75,10 +75,13 @@ def save_changes(pirate, form, new=False):
     # of the SQLAlchemy table object
     ship = Ship()
     ship.name = form.ship.data
+    
+    port = Port()
+    port.name = form.port.data
 
     pirate.ship = ship
+    pirate.port = port
     pirate.name = form.name.data
-    pirate.port = form.port.data
     pirate.good_or_evil = form.good_or_evil.data
 
     if new:
@@ -116,7 +119,7 @@ def delete(id):
 	pirate = qry.first()
 	
 	if pirate:
-		form = PirateForm(formdata=request.form, obj=pirate)
+		form = DeletePirateForm(formdata=request.form, obj=pirate)
 		if request.method == 'POST' and form.validate():
 			db_session.delete(pirate)
 			db_session.commit()
@@ -127,7 +130,6 @@ def delete(id):
 		return render_template('delete_pirate.html', form=form)
 	else:
 		'Error deleting #{id}'.format(id=id)
-
 
 if __name__ == '__main__':
     import os

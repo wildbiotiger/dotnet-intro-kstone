@@ -1,14 +1,18 @@
 <doctype html>
 <title>Delete Pirate</title>
 <h2>Delete Pirate</h2>
-
-{% from "_formhelpers.html" import render_field %}
+<style>
+	input[type=text] {
+	border: none;
+	background-color: transparent;
+	font-size: 16px;
+	font-family: "DejaVu Serif";
+	color: Black;
+	}
+</style>
+{% from "_formhelpers2.html" import render_label %}
 <form method=post>
-    <dl>
-        {{ render_field(form.name) }}
-        {{ render_field(form.ship) }}
-        {{ render_field(form.port) }}        
-        {{ render_field(form.good_or_evil) }}
-    </dl>
-    <p><input type=submit value=Delete>
+	Are you sure you want to delete {{ form.name }}
+    <p><input type=submit value=Delete style="color:red">
+	<input type=button onclick="history.go(-1)" value="Cancel"/>
 </form>

@@ -6,7 +6,9 @@
 <h2>Pirates</h2>
 
 <p><p>
-<a href="{{ url_for('.new_pirate') }}"> New Pirate </a>
+<form action="{{ url_for('.new_pirate') }}">
+	<button type="submit">New Pirate</button>
+</form>
 
 {% with messages = get_flashed_messages() %}
   {% if messages %}
