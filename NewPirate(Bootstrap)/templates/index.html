@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Pirate Form</h2>
+
+<p><p>
+<form action="{{ url_for('.new_pirate') }}">
+	<button type="submit" class="btn btn-primary btn-sm">New Pirate</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+
+<form method=post>
+  <dl>
+    {{ wtf.form_field(form.select) }}
+    {{ wtf.form_field(form.search) }}
+  </dl>
+  <p><input type=submit class="btn btn-primary" value=Search>
+</form>
+{% endblock %}
