@@ -1,0 +1,22 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+New Pirate
+{% endblock %}
+
+{% block content %}
+<div class="container">
+        <h2>New Pirate Form</h2>
+    <form method=post>
+        <dl>
+        {{ wtf.form_field(form.name) }}
+        {{ wtf.form_field(form.ship) }}
+        {{ wtf.form_field(form.port) }}
+        {{ wtf.form_field(form.good_or_evil) }}
+        </dl>
+        <p><input type=submit class="btn btn-primary" value=Submit >
+        <input type=button class="btn btn-default" onclick="history.go(-1)" value="Cancel"/>
+    </form>
+</div>
+{% endblock %}
