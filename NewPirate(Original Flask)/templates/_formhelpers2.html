@@ -1,0 +1,13 @@
+{% macro render_label(label) %}	
+	
+    <dd>{{ label(**kwargs)|safe }}
+    	
+    {% if label.errors %}
+        <ul class=errors>
+        {% for error in label.errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </dd>
+{% endmacro %}

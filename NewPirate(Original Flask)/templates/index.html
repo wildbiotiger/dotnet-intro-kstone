@@ -1,0 +1,31 @@
+<doctype html>
+<head>
+    <title>Pirates</title>
+</head>
+
+<h2>Pirates</h2>
+
+<p><p>
+<form action="{{ url_for('.new_pirate') }}">
+	<button type="submit">New Pirate</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% from "_formhelpers.html" import render_field %}
+<form method=post>
+  <dl>
+    {{ render_field(form.select) }}
+    <p>
+    {{ render_field(form.search) }}
+  </dl>
+  <p><input type=submit value=Search>
+</form>
